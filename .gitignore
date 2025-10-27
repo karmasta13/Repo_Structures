@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+.env.*
+env/
+env.bak/
+venv.bak/
+
+# Data files
+*.csv
+*.dat
+*.db
+*.sqlite
+*.sqlite3
+*.xlsx
+*.xls
+*.json
+*.parquet
+*.pkl
+*.h5
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+*.ipynb_metadata
+
+# IDE - VSCode
+.vscode/
+*.code-workspace
+.history
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Logs and databases
+*.log
+*.sqlite
+logs/
+*.db
