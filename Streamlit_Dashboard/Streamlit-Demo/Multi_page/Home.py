@@ -411,7 +411,7 @@ def load_data():
     """Load and preprocess the WARIS dataset"""
     try:
         df = pd.read_csv('../../../Data/WARIS.csv')
-    df['Date'] = pd.to_datetime(df[['Year', 'Month']].assign(DAY=1))
+        df['Date'] = pd.to_datetime(df[['Year', 'Month']].assign(DAY=1))
         df['Year'] = df['Date'].dt.year
         df['Month_Name'] = df['Date'].dt.month_name()
         
@@ -420,7 +420,7 @@ def load_data():
         df['Revenue_Growth'] = df.groupby('Zone')['Total Operating Revenues'].pct_change() * 100
         df['Efficiency_Score'] = (df['Collection Efficiency'] / 100) * df['Operation & Maintenance Cost Coverage']
         
-    return df
+        return df
     except Exception as e:
         st.error(f"Error loading data: {e}")
         return pd.DataFrame()
@@ -478,7 +478,7 @@ with col4:
 # Filters (collapsible) - Only show on Home page
 if "🏠 Home" in current_page:
     with st.expander("🔧 Filters & Controls", expanded=False):
-col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3)
 
         with col1:
             # Date range filter
@@ -829,7 +829,7 @@ if "🏠 Home" in current_page:
                     xaxis_title="Month",
                     yaxis_title="Value"
                 )
-st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, use_container_width=True)
 
             with col2:
                 # Performance comparison
