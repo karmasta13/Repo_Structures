@@ -35,7 +35,9 @@ if selected == "Dashboard":
     total_revenue = df.groupby('Year')['Total Operating Revenues'].sum().iloc[-1]
     total_expenditures = df.groupby('Year')['Total Operating Expenditures'].sum().iloc[-1]
     collection_efficiency = df['Collection Efficiency'].mean()
-    average_personnel_expense = df['Personnel Expenditure as Percentage of O&M Costs'].mean()
+    # Calculate personnel expense as percentage of O&M costs
+    total_om_costs = df['Staff Costs'] + df['Maintenance Costs'] + df['Administrative Costs'] + df['Other Costs']
+    average_personnel_expense = (df['Staff Costs'] / total_om_costs * 100).mean()
 
     # Use markdown to enhance visual presentation with HTML and inline CSS
     metrics_layout[0].markdown(f"<div style='text-align: center; color: #4CAF50;'><span style='font-size: 2em;'>${total_revenue:,.0f}</span><br>Total Revenue", unsafe_allow_html=True)
